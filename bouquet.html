@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hehe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Caveat', handwriting; /* Not cursive! */            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .bouquet-container {
+            position: relative;
+            width: 100%;
+            max-width: 20rem;
+            margin: 2rem 0;
+        }
+        
+        .bouquet-wrap {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 5rem;
+            background: linear-gradient(135deg, #f5d9b0 0%, #e8c897 100%);
+            border-radius: 0 0 1rem 1rem;
+            z-index: 1;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+        }
+        
+        .bouquet-wrap::before {
+            content: "";
+            position: absolute;
+            top: -1rem;
+            left: 0;
+            width: 100%;
+            height: 2rem;
+            background: linear-gradient(90deg, #ff85a2 0%, #ff6b8b 100%);
+            border-radius: 1rem;
+        }
+        
+        .bouquet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 5rem;
+        }
+        
+        .flower {
+            width: 5rem;
+            height: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flower::before {
+            content: "";
+            position: absolute;
+            bottom: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.3rem;
+            height: 3rem;
+            background: linear-gradient(to bottom, #7cba6a 0%, #5a8f4e 100%);
+            z-index: -1;
+        }
+        
+        .flower-petal {
+            position: absolute;
+            width: 8rem;
+            height: 8rem;
+            background-color: #ff85a2;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.1);
+        }
+        
+        .flower-center {
+            width: 60%;
+            height: 60%;
+            background-color: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .flower img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        
+        .flower:hover {
+            transform: translateY(-1rem) scale(1.2);
+            z-index: 10;
+        }
+        
+        .flower:hover .flower-petal {
+            background-color: #ff6b8b;
+        }
+        
+        .flower:hover img {
+            transform: scale(1.1);
+        }
+        
+        .ribbon {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1rem;
+            background: linear-gradient(90deg, #ff85a2 0%, #ff6b8b 100%);
+            z-index: 3;
+            border-radius: 0.5rem;
+        }
+        
+        .ribbon::before {
+            content: "";
+            position: absolute;
+            top: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(135deg, #ff85a2 0%, #ff6b8b 100%);
+            border-radius: 50%;
+        }
+        
+        .back-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background-color 0.3s;
+            font-family: 'Caveat', handwriting; /* Not cursive! */
+        }
+        
+        .back-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Also, here's a bouquet of me 🙈</h1>
+    
+    <div class="bouquet-container">
+        <div class="bouquet-wrap"></div>
+        <div class="bouquet">
+            <div class="flower">
+                <div class="flower-petal">
+                    <div class="flower-center">
+                        <img src="images/image (1).jpg" alt="Photo 1">
+                    </div>
+                </div>
+            </div>
+            <div class="flower">
+                <div class="flower-petal">
+                    <div class="flower-center">
+                        <img src="images/image (5).jpg" alt="Photo 2">
+                    </div>
+                </div>
+            </div>
+            <div class="flower">
+                <div class="flower-petal">
+                    <div class="flower-center">
+                        <img src="images/image (2).jpg" alt="Photo 3">
+                    </div>
+                </div>
+            </div>
+            <div class="flower">
+                <div class="flower-petal">
+                    <div class="flower-center">
+                        <img src="images/image (4).jpg" alt="Photo 4">
+                    </div>
+                </div>
+            </div>
+            <div class="flower">
+                <div class="flower-petal">
+                    <div class="flower-center">
+                        <img src="images/image (3).jpg" alt="Photo 5">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ribbon"></div>
+    </div>
+    
+    <button class="back-btn" onclick="window.location.href='index.html'">
+        BACK TO MAIL
+    </button>
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const flowerImages = document.querySelectorAll('.flower-center img');
+            flowerImages.forEach((img, index) => {
+                img.src = imageUrls[index % imageUrls.length];
+            });
+        });
+    </script>
+</body>
+</html>

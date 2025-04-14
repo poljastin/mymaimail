@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You've Got Mail!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Caveat', handwriting; /* Not cursive! */            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+        
+        .mail-icon {
+            width: 8rem;
+            height: 8rem;
+            animation: subtleShake 2s infinite ease-in-out;
+            cursor: pointer;
+        }
+        
+        @keyframes subtleShake {
+            0%, 100% {
+                transform: translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateX(-0.2rem) rotate(-1deg);
+            }
+            75% {
+                transform: translateX(0.2rem) rotate(1deg);
+            }
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 25rem;
+            text-align: center;
+        }
+        
+        .modal-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        button {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Caveat', handwriting; /* Not cursive! */
+            transition: background-color 0.3s;
+        }
+        
+        .yes-btn {
+            background-color: #4CAF50;
+            color: white;
+            font-family: 'Caveat', handwriting; /* Not cursive! */
+        }
+        
+        .no-btn {
+            background-color: #f44336;
+            color: white;
+            font-family: 'Caveat', handwriting; /* Not cursive! */
+        }
+        
+        .back-btn {
+            background-color: #2196F3;
+            color: white;
+            margin-top: 1rem;
+        }
+        
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hey, you have a mail</h1>
+    <img class="mail-icon" src="https://cdn-icons-png.flaticon.com/512/646/646094.png" alt="Mail icon">
+
+    <!-- First Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <p class="modal-text">Before reading, do you confirm that you know and you love the sender of this letter?</p>
+            <div class="button-group">
+                <button class="yes-btn" id="yesBtn">YES, I LOVE HIM</button>
+                <button class="no-btn" id="noBtn">NO, I DON'T</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Modal -->
+    <div id="responseModal" class="modal">
+        <div class="modal-content">
+            <p class="modal-text">I know you love him 😏</p>
+            <button class="back-btn" id="backBtn">Back</button>
+        </div>
+    </div>
+
+    <script>
+        const mailIcon = document.querySelector('.mail-icon');
+        const confirmModal = document.getElementById('confirmModal');
+        const responseModal = document.getElementById('responseModal');
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const backBtn = document.getElementById('backBtn');
+
+        // Open first modal when mail icon is clicked
+        mailIcon.addEventListener('click', () => {
+            confirmModal.style.display = 'flex';
+        });
+
+        // Handle YES button click
+        yesBtn.addEventListener('click', () => {
+            window.location.href = 'message.html';
+        });
+
+        // Handle NO button click
+        noBtn.addEventListener('click', () => {
+            confirmModal.style.display = 'none';
+            responseModal.style.display = 'flex';
+        });
+
+        // Handle BACK button click
+        backBtn.addEventListener('click', () => {
+            responseModal.style.display = 'none';
+            confirmModal.style.display = 'flex';
+        });
+
+        // Close modal when clicking outside content
+        window.addEventListener('click', (event) => {
+            if (event.target === confirmModal) {
+                confirmModal.style.display = 'none';
+            }
+            if (event.target === responseModal) {
+                responseModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
